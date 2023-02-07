@@ -1,0 +1,24 @@
+.register_element{
+    margin-top:10px; 
+}
+
+ion-label.register_input {
+    font-size: 20px !important;
+}
+
+#register_button{
+    margin:20px;
+}
+
+#doctorNameInput{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#drInput{
+    margin-right: 5px;
+}
+#ptInput{
+    margin-left:5px
+}

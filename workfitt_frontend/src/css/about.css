@@ -1,0 +1,56 @@
+.img-icon{
+    height: 30px;
+    width: 30px;
+    /* margin-top: 10px; */
+}
+.logoImgContainer {
+    /* text-align: center; */
+    margin: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.landingLogo{
+    width: 141px;
+    height: 50px;
+}
+.menuLogo {
+    width: 61px;
+    height: 36px;
+    color: #abaaaa;
+    margin-top: 6px;
+}
+
+
+.img-icon-about{
+    height: 30px;
+    width: 30px;
+    margin: 10px; 
+}
+
+.aboutHeading{
+    font-size:16px;
+    font-weight:700
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutList{
+    list-style: none;
+    padding-left: 0px !important;
+}
+
+.aboutList li{
+    margin: 9px;
+}
+
+.aboutCard{
+    /* border: 1px solid black; */
+    margin: 20px;
+    padding: 3px;
+    border-radius: 13px;
+    background-color: #b5edb5;
+}

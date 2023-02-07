@@ -1,0 +1,94 @@
+[{
+        "id": "dashboard",
+        "name": "Dashboard",
+        "redirect": "/",
+        "child": []
+    },
+    {
+        "id": "admin",
+        "name": "Admin",
+        "icon": "fa fa-cog",
+        "redirect": "/admin",
+        "child": []
+    },
+    {
+        "id": "email",
+        "name": "Email",
+        "icon": "fa fa-cog",
+        "redirect": "/email",
+        "child": []
+    },
+    {
+        "id": "instruction",
+        "name": "Instruction",
+        "icon": "fa fa-cog",
+        "redirect": "/instruction",
+        "child": []
+    },
+    {
+        "id": "adjunct",
+        "name": "Adjunct",
+        "icon": "fa fa-cog",
+        "redirect": "/adjunct",
+        "child": []
+    },
+    {
+        "id": "bodyPart",
+        "name": "Body Part",
+        "icon": "fa fa-cog",
+        "redirect": "/bodyPart",
+        "child": []
+    },
+    {
+        "id": "bodyArea",
+        "name": "Body Area",
+        "icon": "fa fa-cog",
+        "redirect": "/bodyArea",
+        "child": []
+    },
+    {
+        "id": "doctorAdvice",
+        "name": "Doctor Advice",
+        "icon": "fa fa-cog",
+        "redirect": "/doctorAdvice",
+        "child": []
+    },
+    {
+        "id": "Video",
+        "name": "Video",
+        "icon": "fa fa-cog",
+        "redirect": "/video",
+        "child": []
+    },
+    {
+        "id": "Exercise",
+        "name": "Exercise",
+        "icon": "fa fa-cog",
+        "redirect": "/exercise",
+        "child": []
+    },
+    {
+        "id": "Subscription",
+        "name": "Subscription",
+        "icon": "fa fa-cog",
+        "redirect": "/subscription",
+        "child": []
+    },
+    {
+        "id": "Scale",
+        "name": "Scale",
+        "icon": "fa fa-cog",
+        "redirect": "/scale",
+        "child": []
+    },
+    
+    {
+        "id": "logout",
+        "name": "Logout",
+        "icon": "fa fa-cog",
+        "redirect": "/logout",
+        "child": []
+    }
+
+]
+

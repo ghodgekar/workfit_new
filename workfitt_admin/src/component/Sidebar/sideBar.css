@@ -1,0 +1,68 @@
+/* .expand-dorpdown {
+  float: right;
+  border: 1px solid black;
+} */
+
+/* .sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #0298cf;
+  overflow-x: hidden;
+  padding-top: 20px;
+} */
+
+/* .sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+} */
+
+/* .sidenav a:hover {
+  color: #f1f1f1;
+} */
+
+/* .main {
+  margin-left: 160px;
+  Same as the width of the sidenav
+  font-size: 28px;
+  Increased text to enable scrolling
+  padding: 0px 10px;
+} */
+
+/* .dropdown-container {
+
+  background-color: #661f1f;
+  padding-left: 8px;
+  color: white
+} */
+
+/* Style the sidenav links and the dropdown button */
+/* .sidenav a,
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #202068;
+
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+} */
+
+/* Add an active class to the active dropdown button */
+/* .active {
+  background-color: green;
+  color: white;
+} */
+
+

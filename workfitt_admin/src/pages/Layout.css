@@ -1,0 +1,80 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 3px);
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.sidebarUl {
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.main{
+    width:80%
+}
+
+.userName{
+    text-align: center;
+}
+
+.sideNav {
+    background: #0298cf;
+    margin: 0px;
+    padding-top: 5px;
+    height: 100%;
+    width: 19%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    color: #818181;
+}
+
+
+.sideNav::-webkit-scrollbar {
+    display: none;
+}
+
+.sideBarElement {
+    letter-spacing: 3px;
+    padding: 12px;
+    font-weight: 400;
+    color: #302e2e;
+}
+
+.sideBarElement:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.down-icon {
+    color: #302e2e;
+    float: right;
+}
+
+.dropdown-container {
+    display: none;
+}
+
+.dropdown-container:nth-child(even) {
+    background-color: #0298cf;
+}
+
+.dropdown-container:nth-child(odd) {
+    background-color: #0298cf;
+}
+
+.active {
+    background-color: rgb(127 223 218);
+    color: white;
+  }
+
+
+.nextui-user-name{
+    font-size: 20px;
+    color: #f1f1f1;
+}

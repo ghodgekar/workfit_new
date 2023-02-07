@@ -1,0 +1,48 @@
+.loaderContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.loaderContainer {
+    position:relative;
+    height: 100%;
+    width:100%;
+    padding: 40px;
+}
+
+.loaderContainer img {
+    /* position:absolute; */
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    animation: blink 1.2s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    20%{
+        opacity: 0.9;
+    }
+    40%{
+        opacity: 0.7;
+    }
+    60%{
+        opacity: 0.5;
+    }
+    
+    80%{
+        opacity: 0.7;
+    }
+    90%{
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}

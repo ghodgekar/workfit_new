@@ -1,0 +1,5 @@
+{
+  "backend_url": "http://localhost:8000",
+  "Base_url" : "http://localhost:3000",
+  "general_inst_id":241
+}

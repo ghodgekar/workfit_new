@@ -1,0 +1,31 @@
+{
+    "port":8000,
+    "database":{
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "workfitt",
+        "port": ""
+    },
+    "voicemaker":{
+        "url":"https://developer.voicemaker.in/voice/api",
+        "auth":"Bearer c51ff680-0a6e-11ed-ae95-f1283b5fa3b2",
+        "header":{
+            "Content-Type": "application/json",
+            "Authorization": "Bearer c51ff680-0a6e-11ed-ae95-f1283b5fa3b2"
+        }
+    },
+    "smtp":{
+        "host": "smtp.gmail.com",
+        "auth": {
+            "user": "appworkfitt@gmail.com",
+            "pass": "dgieappbgdxgywej"
+        }
+    },
+    "template":{
+        "prescription_email":"email_template",
+        "invoice":"invoice_template"
+    },
+    "apiurl":"http://localhost:8000/",
+    "adminurl": "http://localhost:3000/"
+}

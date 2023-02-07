@@ -1,0 +1,7 @@
+.watch_exercise_video iframe{
+    width:calc(100vw );
+    height:calc(30vh);
+    pointer-events: none;
+}
+
+

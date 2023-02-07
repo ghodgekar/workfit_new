@@ -1,0 +1,30 @@
+.searchContainer {
+    text-align: center;
+    /* border: 1px solid black;
+    width: 88%; */
+    margin: 24px auto;
+    /* height: 40px;
+    border-radius: 12px;  */
+}
+
+.inputSearch {
+    border: 1px solid black;
+    /* border: none; */
+    width: 90%;
+    /* height: 100%; */
+    border-radius: 40px;
+    padding: 13px 20px;
+}
+
+input.inputSearch:focus {
+    outline: none;
+}
+
+
+
+.webBtn {
+    width: 200px;
+    font-size: 15px;
+    height: 45px;
+    margin: 10px auto;
+}

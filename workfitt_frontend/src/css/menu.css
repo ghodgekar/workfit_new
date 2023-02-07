@@ -1,0 +1,25 @@
+.menuContainer {
+    position: fixed;
+    width: 300px;
+    background: white;
+    box-shadow: #0000003d 0px 3px 8px;
+    right:0;
+    margin: 5px;
+}
+
+.menuContainer,.menuItem{
+border-radius: 10px;
+}
+
+.menuContainer .logout, .menuContainer .menuItemIconLogout{
+    color:red
+}
+
+.menuItemIcon{
+    margin:0px 10px;
+}
+
+a.editLink, a.editLink:hover, a.editLink:focus, a.editLink:active {
+    text-decoration: none;
+    color: inherit;
+}

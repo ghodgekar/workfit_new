@@ -1,0 +1,12 @@
+.description_list{
+    margin-left: 5px;
+}
+
+.desc_list_item{
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,32 @@
+{
+    "port":8000,
+    "database":{
+        "host": "31.220.110.23",
+        "user": "u516485864_testApi",
+        "password": "Sur@bhi@30",
+        "database": "u516485864_testApi",
+        "port": ""
+    },
+    "voicemaker":{
+        "url":"https://developer.voicemaker.in/voice/api",
+        "auth":"Bearer c51ff680-0a6e-11ed-ae95-f1283b5fa3b2",
+        "header":{
+            "Content-Type": "application/json",
+            "Authorization": "Bearer c51ff680-0a6e-11ed-ae95-f1283b5fa3b2"
+        }
+    },
+    "smtp":{
+        "host": "smtp.gmail.com",
+        "auth": {
+            "user": "appworkfitt@gmail.com",
+            "pass": "dgieappbgdxgywej"
+        }
+    },
+    "template":{
+        "prescription_email":"email_template",
+        "invoice":"invoice_template"
+    },
+    "apiurl":"http://13.127.138.88:8000",
+    "adminurl": "http://13.127.138.88:3000/"
+    
+}

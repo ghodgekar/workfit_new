@@ -1,0 +1,21 @@
+.action_col{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nextui-table-hidden-row{
+    display: none;
+}
+
+
+.viewTable{
+    margin: 25px;
+}
+
+table.dataTable{
+    background: white;
+}
+.viewTable .nextui-table-container{
+    min-width: 1035px;
+    max-width: 1035px;
+}

@@ -1,0 +1,30 @@
+ion-modal#example-modal {
+    --height: 50%;
+    --width:90%;
+    /* --border-radius: 16px; */
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal#example-modal::part(backdrop) {
+    /* background: rgba(209, 213, 219); */
+    background: rgb(5, 5, 5);
+    opacity: 1;
+}
+
+ion-modal#example-modal ion-toolbar {
+    --background: rgb(229, 243, 231);
+    --color: rgb(24, 22, 22);
+}
+
+ion-searchbar.sc-ion-searchbar-md-h.sc-ion-searchbar-md-s.md.searchbar-left-aligned.searchbar-should-show-clear.modalSearchBar {
+    padding: 0px;
+    /* border-bottom: 1px solid black; */
+    margin: 3px auto;
+    /* width: 90%; */
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.modalSearchBar .searchbar-input.sc-ion-searchbar-md {
+    box-shadow: none !important;
+}

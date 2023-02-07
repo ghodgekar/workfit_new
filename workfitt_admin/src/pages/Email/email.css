@@ -1,0 +1,15 @@
+.view-template{
+
+    box-sizing: border-box;
+    width: 453px;
+    
+    height: 547px;
+    border: solid 2px #e0e0e0 !important;
+    border-radius: 0.875rem;
+}
+
+/* .view-template :hover{
+    border: solid 2px blue !important;
+    border-radius: 0.875rem;
+    margin-top: 25px;
+} */

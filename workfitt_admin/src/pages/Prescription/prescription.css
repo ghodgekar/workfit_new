@@ -1,0 +1,326 @@
+.flexClass {
+    display: flex;
+    flex-direction: row;
+}
+
+.NoRespContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 30px;
+    color:#f8432b;
+}
+
+.expiryLink{
+    text-align: center;
+    padding: 5px 0px 0px 0px;
+    color:#f8432b;
+}
+.instContainer{
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.splNote{
+    margin-top: 5px;
+}
+
+.templateHead {
+    /* justify-content: space-between; */
+    max-width: 100vw;
+    border-bottom: 1px solid #726f6f;
+}
+
+#poweredText {
+    /* margin: 0px 10px; */
+    /* margin-left: auto;
+    font-size: 21px; */
+    text-align: end;
+}
+
+.poweredText {
+    margin-bottom: -18px;
+}
+
+.prescriptionBody {
+    margin: 10px 25px;
+}
+
+.adjunct {
+    display: flex;
+}
+
+.adjunct ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+li.adjunct_li {
+    padding: 0px;
+    margin-bottom: 7px;
+}
+
+.exercise h5 {
+    font-size: 19px;
+    margin: 0px;
+}
+
+#sign {
+    max-width: 160px;
+    max-height: 80px;
+}
+
+#doctorName {
+    font-size: 21px;
+}
+
+.footer  {
+    /* float: right; */
+    display: flex;
+    justify-content: space-between;
+}
+
+#exerciseHead {
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.emailTemplate {
+    border: 1px solid #c7c2c2;
+    margin: 13px 156px;
+    padding: 15px;
+}
+
+.exercise_video iframe {
+    bottom: 5px;
+    height: 240px;
+    pointer-events: none;
+    position: absolute;
+    width: 365px;
+    z-index: 1;
+}
+
+.exercise_heading {
+    margin: 16px 0px 0px 0px;
+}
+
+.exercise_heading b {
+    margin-left: 7px;
+    color: #5e5e5e;
+    font-size: 15px;
+}
+
+
+.instructionSpace {
+    margin: 0px 5px;
+    color: #1093f3;
+    cursor: pointer;
+}
+
+.seprator {
+    border-right: 1px solid;
+    margin-bottom: 10px;
+}
+
+.doctor_details {
+    padding-left: 10px;
+    line-height: 10px;
+    font-family: math;
+}
+
+.doctor_details p {
+    color: #524f4f;
+    font-size: 16px;
+}
+
+#doctor_logo {
+    max-width: 260px;
+    max-height: 100px;
+}
+
+
+.doctor_name_top{
+    color: #817d7d;
+}
+
+.doctor_details h1 {
+    font-size: 30px;
+    margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 988px) {
+    .emailTemplate{
+        margin: 5px;
+    }
+    #poweredText {
+        /* margin: 0px 5px; */
+        margin-left: auto;
+        font-size: 17px;
+        width: 35%;
+        text-align: right;
+    }
+    #sign {
+        width: 113px;
+        height: 57px;
+    }
+    #doctorName {
+        font-size: 15px;
+    }
+    .doctor_details {
+        padding-left: 10px;
+        font-family: math;
+    }
+    
+    .doctor_details p {
+        color: #524f4f;
+        font-size: 16px;
+        line-height: 14px;
+    }
+    
+    #doctor_logo {
+        max-width: 260px;
+        max-height: 100px;
+    }
+    .poweredText {
+        margin-bottom: -10px;
+    }
+
+    .doctor_details h1 {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .expiryLink{    
+        font-size: 10px;
+    }
+    #poweredText {
+        /* margin: 0px; */
+        margin-left: auto;
+        font-size: 10px;
+        width: 35%;
+        text-align: right;
+    }
+    #sign {
+        width: 90px;
+        height: 57px;
+    }
+    .bodyElement p{
+        font-size: 15px;
+    }
+    
+    #exerciseHead {
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    .instructionSpace {
+        margin: 0px 2px;
+        color: #1093f3;
+        font-size: 11px;
+        cursor: pointer;
+    }
+    .exercise h5 {
+        font-size: 15px;
+        margin: 0px;
+    }
+    .adjunct ul {
+        list-style: none;
+        padding-left: 5px;
+    }
+    
+    li.adjunct_li {
+        flex-direction: column;
+        padding: 0px;
+        margin-bottom: 7px;
+    }
+    .exercise_heading {
+        flex-direction: column;
+        font-size: 10px;
+    }
+    #doctorName,.liElement {
+        font-size: 14px;
+    }
+    .doctor_details {
+        padding-left: 10px;
+        font-family: math;
+    }
+    
+    .doctor_details p {
+        color: #524f4f;
+        font-size: 12px;
+        margin-bottom: 0px;
+        line-height: 14px;
+    }
+    
+    #doctor_logo {
+        max-height: 82px;
+        max-width: 84px;
+    }
+    .poweredText {
+        margin-bottom: -10px;
+    }
+}
+
+.vasScale{
+    text-align: center;
+    margin-top: 30px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+#rangeinput{
+    width: 40%;
+}
+
+
+/* CSS */
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+.custom-vas-textarea{
+    width: 40%;
+    margin-bottom: 10px;
+    padding: 10px;
+}

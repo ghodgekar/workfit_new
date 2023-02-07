@@ -1,0 +1,182 @@
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexItem {
+    margin: 8px;
+}
+
+.removeExercise{
+    float:right;
+}
+
+.exercise {
+    margin: 29px 15px 10px 15px;
+}
+
+b.exerciseName {
+    letter-spacing: 2px;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.showSection{
+    display: block;
+}
+.hideSection{
+    display: none;
+}
+
+.nextStep {
+    margin: 30px;
+    display: block;
+}
+.showSection{
+    text-align: center;
+}
+
+.nextIcon{
+    font-size: 50px;
+}
+
+.prescription_input {
+    border: 1px solid #d3cdcd;
+    border-radius: 9px;
+    padding: 3px 8px !important;
+}
+
+ion-item{
+    padding: 5px;
+}
+
+
+
+.prescription_label{
+    font-size: 22px !important;
+    margin: 2px 2px 10px 2px !important;
+}
+
+.ios .prescription_label {
+    font-size: 18px !important;
+    margin: 14px 2px 10px 2px !important;
+}
+.ios .prescription_dd_label {
+    margin: 11px 2px 0px 8px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.consultation_label {
+    margin:0px 2px 0px 14px;
+    font-size: 16px;
+    text-align: left;
+}
+.charges_head {
+    text-align: left;
+    margin-left: 15px;
+    font-weight: 400;
+}
+.consultation_container,.treatment_head{
+    text-align: left;
+}
+
+ion-label#ion-input-5-lbl.doe{
+    font-size: 20px;
+}
+
+
+
+.backBtn {
+    display: block;
+    font-size: 40px;
+    margin: 5px 0px;
+    position: absolutel;
+    z-index: 99;
+    color: #379acb;
+}
+
+.headerTitle{
+    text-align: right;
+    margin-top: 10px;
+}
+
+ion-item::part(native) {
+    padding-left: 10px;
+  }
+
+/* .logoImgContainer{
+    display: block;
+} */
+
+
+.dropdown_container{
+    margin: 5px 11px;
+}
+
+.logoImgContainer {
+    /* text-align: center; */
+    margin: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.prescription_dd_label{
+    margin: 11px 2px 0px 4px;
+    text-align: left;
+}
+
+.prescription_dd_input{
+    border: 1px solid #d3cdcd;
+    margin: 11px 2px 4px 2px;
+    border-radius: 9px;
+    text-align: left;
+}
+
+h6.prescription_error,.input_desc {
+    margin: 5px 1px 1px 20px;
+    text-align: left;
+    color: red;
+    font-size: 14px;
+}
+
+.input_desc{
+    color: grey;
+}
+
+
+.prescription_input_2{
+    border-bottom: 1px solid #222020;
+    margin-left: 5px;
+}
+
+.exercise_input_2{
+    border-bottom: 1px solid #222020;
+}
+
+/* .prescription_section{
+    margin-top: 22px;
+} */
+
+.consultation_check,.radioBtn{
+    margin: 0px 5px;
+}
+
+.radio_group_header{
+    font-size: 17px;
+}
+
+.exe_dd_input{
+    flex-direction: row-reverse;
+}
+
+ion-icon.exe_dd_icon {
+    color: grey;
+}
+
+
+
+.item-native{
+    padding-inline-start: 10px !important;
+}

@@ -1,0 +1,61 @@
+.exerciseRowContainer {
+    text-align: center;
+    padding: 6px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin: 0px 0px;
+    font-weight: 900;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exTrackObjContainer {
+    margin: 20px auto;
+    border-radius: 32px;
+    border: 1px solid #cfcccc;
+    color: #22af22;
+    width: 93%;
+}
+
+.exTrackAccorContainer{
+    text-align: center;
+}
+
+.exTrackTitle{
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: #302e2e;
+}
+
+.exTrackDate{
+    border: 1px solid #d3cdcd;
+    border-radius: 9px;
+    padding: 5px 8px !important;
+    margin: 20px auto;
+    width: 90%;
+}
+
+
+.downloadReport{
+    margin: auto 0px;
+}
+
+.vasdiv{
+    text-align: left;
+    padding: 10px;
+}
+
+.vasdiv h5{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vasdiv span, .vasdiv p{
+    color: #000;
+    font-size: 13px;
+}

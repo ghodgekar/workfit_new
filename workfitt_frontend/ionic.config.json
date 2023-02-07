@@ -1,0 +1,7 @@
+{
+  "name": "WorkFitt_Frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
