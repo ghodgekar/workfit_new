@@ -476,6 +476,16 @@ module.exports.addExerciseForDr = async (req, res) => {
     }
 }
 
+module.exports.customExerciseSave = async (req, res) => {
+    try {
+        let customExerciseSave = await exerciseController.customExerciseSave(req.body)
+        res.send(customExerciseSave)
+    } catch (error) {
+        console.log("err", error);
+        res.send({ status: false, data: error, err_msg: "Oop's Something went wrong" })
+    }
+}
+
 module.exports.exerciseList = async (req, res) => {
     try {
         let exerciseList = await exerciseController.exerciseList(req)

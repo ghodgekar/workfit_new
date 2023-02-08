@@ -217,11 +217,11 @@ const Calendar: React.FC = (props) => {
                       <>
                       <div className='vasdiv'>
                         <IonRow className="exerciseRowContainer">
-                          <IonCol size='6'><h5>Vas Type: <span>{exerciseObj.vas_type}</span></h5></IonCol>
-                          <IonCol size='6'><h5>Vas Scale: <span>{exerciseObj.vas_scale}</span></h5></IonCol>
+                          <IonCol size='6'><h5>NRS Type: <span>{exerciseObj.vas_type}</span></h5></IonCol>
+                          <IonCol size='6'><h5>Scale: <span>{exerciseObj.vas_scale}</span></h5></IonCol>
                         </IonRow>
                         <IonRow className="exerciseRowContainer">
-                          <IonCol size='12'><h5>Vas Remark:</h5></IonCol>
+                          <IonCol size='12'><h5>Remark:</h5></IonCol>
                           <IonCol size='12'><p>{exerciseObj.vas_remark}</p></IonCol>
                         </IonRow>
                       </div>

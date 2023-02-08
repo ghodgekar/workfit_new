@@ -287,7 +287,7 @@ export default function Profile() {
                 {EditRequest?.doctor_address?.changed ?
                   <IonInput className="edit_profile_input" placeholder="Clinic Address" onIonChange={e => inputChangeHandler("doctor_address", e.detail.value!)} value={EditRequest?.doctor_address?.value}></IonInput>
                   :
-                  <p className='editDesc'> {doctorData.doctor_address} Rs</p>
+                  <p className='editDesc'> {doctorData.doctor_address}</p>
                 }
                 
               </div>

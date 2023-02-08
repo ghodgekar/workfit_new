@@ -91,6 +91,7 @@ router.post("/updateExerciseTrack",middleware.updateExerciseTrack);
 router.post("/exerciseByDate",middleware.exerciseByDate);
 router.get("/exerciseListByBodyPartId",middleware.exerciseListByBodyPartId);
 router.post("/addExerciseForDr",middleware.addExerciseForDr);
+router.post("/customExerciseSave",middleware.customExerciseSave);
 // Exercise
 
 //Subscription

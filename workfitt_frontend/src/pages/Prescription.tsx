@@ -23,6 +23,8 @@ import "../css/customModal.css"
 import { useHistory } from 'react-router-dom';
 import getPrescriptionById from '../api/getPrescriptionById';
 
+import addExercise from "../api/addExercise";
+
 import {
   MediaFile,
   VideoCapturePlusOptions,
@@ -231,6 +233,7 @@ export default function Prescription(props) {
 
   const [SearchText, setSearchText] = useState("")
   const [isModalOpen, setisModalOpen] = useState(false)
+  const [isVideoModalOpen, setisVideoModalOpen] = useState(false)
   const [vas_type, setSelectedVas] = useState<string>('VAS');
 
   const [prescriptionListByDrIdArr, setprescriptionListByDrIdArr] = useState([])
@@ -240,6 +243,7 @@ export default function Prescription(props) {
 
   function dismiss() {
     setisModalOpen(false)
+    setisVideoModalOpen(false)
   }
 
   async function FilterOptions(value) {
@@ -274,6 +278,14 @@ export default function Prescription(props) {
 
 
   const { register, handleSubmit, setValue, formState: { errors, isValid } } = useForm({ mode: "all" });
+  const {
+    register: register2,
+    formState: { errors: errors2, isValid:isValid2 },
+    handleSubmit: handleSubmit2,
+  } = useForm({
+    mode: "onBlur",
+  });
+
   // const [selectedExerciseArr, setselectedExerciseArr] = useState<Exercise[]>([]);
   const [selectedExerciseArr, dispatch] = useReducer(reducer, [])
   const [selectedAdjunct, dispatchAdjunct] = useReducer(adjunctReducer, [])
@@ -296,7 +308,24 @@ export default function Prescription(props) {
       }
     })
     setprescriptionReq(data)
-
+  }
+  const onSubmitVideo = async (data) => {
+    const { value } = await Preferences.get({ key: 'userInfo' });
+    let doctorData = JSON.parse(value);
+    let queryObj = 
+      {
+        "exercise_name" : data.exercise_name,
+        "exercise_reps": data.exercise_reps,
+        "exercise_holds" : data.exercise_holds,
+        "exercise_sets" : data.exercise_sets,
+        "exercise_rests" : data.exercise_rests,
+        "body_part_name": bodyPart[bodyPart.length - 1],
+        "exercise_video" : "402",
+        "exercise_time" : data.exercise_time,
+        "doctor_id": doctorData.doctor_Id
+      }
+    let query = await addExercise(data)
+    console.log(queryObj)
   }
 
   useEffect(() => {
@@ -710,6 +739,62 @@ export default function Prescription(props) {
 
           </IonContent>
         </IonModal>
+
+        
+        <IonModal id="example-modal" isOpen={isVideoModalOpen}>
+          <IonHeader>
+            <IonToolbar>
+              Add New Exercise Video
+              <IonButtons slot="end">
+                <IonButton onClick={() => dismiss()}>
+                  Close
+                </IonButton>
+              </IonButtons>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            
+          <div className="add_video_container">
+            <form onSubmit={handleSubmit2(onSubmitVideo)}>
+              <div style={{"paddingBottom":"20px","textAlign":"left"}}>
+                <IonButton className='login_btn' onClick={() => doMediaCapture()} style={{"width":"150px"}}>Record Video</IonButton>
+              </div>
+              <div style={{"textAlign":"left"}}>
+                  <IonLabel className="prescription_label" position="stacked">*Exercise Name</IonLabel><br /><br />
+                  <IonInput className="prescription_input" placeholder='Enter Name Here...' {...register2("exercise_name", { required: true })} />
+                {errors2.exercise_name && <h6 className='prescription_error'>Exercise Name is required</h6>}
+              </div>
+              <br />
+              <div className="exercise_desc">
+                <div className="flexRow">
+                  <div className="flexItem">
+                      <IonLabel className='prescription_label' position="stacked" >Reps</IonLabel>
+                      <IonInput className='exercise_input_2' type="number" {...register2("exercise_reps", { required: true })} />
+                  </div>
+                  <div className="flexItem">
+                      <IonLabel className='prescription_label' position="stacked" >Sets</IonLabel>
+                      <IonInput className='exercise_input_2' type="number" {...register2("exercise_sets", { required: true })} />
+                  </div>
+                  <div className="flexItem">
+                      <IonLabel className='prescription_label' position="stacked" >Holds</IonLabel>
+                      <IonInput className='exercise_input_2' type="number" {...register2("exercise_holds", { required: true })}/>
+                  </div>
+                  <div className="flexItem">
+                      <IonLabel className='prescription_label' position="stacked" >Rest</IonLabel>
+                      <IonInput className='exercise_input_2' type="number" {...register2("exercise_rests", { required: true })} />
+                  </div>
+                  <div className="flexItem">
+                      <IonLabel className='prescription_label' position="stacked" >Days</IonLabel>
+                      <IonInput className='exercise_input_2' type="number" {...register2("exercise_time", { required: true })} />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <IonButton color="success" type="submit" className="login_btn" disabled={!isValid2}>Save</IonButton>
+            </form>
+          </div>
+          </IonContent>
+        </IonModal>
         
         {isLoadingResult ?
           <Loader /> :
@@ -796,10 +881,6 @@ export default function Prescription(props) {
                 <IonText>{"Date Of Evaluation : " + todayDate}</IonText>
               </IonInput> */}
 
-                <IonItem lines='none' >
-                  <IonLabel position="stacked" className="prescription_label">Treatment Goals</IonLabel>
-                  <IonTextarea autoGrow={true} className="prescription_input" placeholder='Enter Treatment Goals Here...' {...register("prescription_goals")} />
-                </IonItem>
 
                 <IonItem lines='none' >
                   <IonLabel position="stacked" className="prescription_label">*C/O</IonLabel>
@@ -810,6 +891,10 @@ export default function Prescription(props) {
                 <IonItem lines='none' >
                   <IonLabel className="prescription_label" position="stacked">Assessment Notes</IonLabel>
                   <IonTextarea autoGrow={true} className="prescription_input" placeholder='Enter Note Here...' {...register("doctor_note")} />
+                </IonItem>
+                <IonItem lines='none' >
+                  <IonLabel position="stacked" className="prescription_label">Treatment Goals</IonLabel>
+                  <IonTextarea autoGrow={true} className="prescription_input" placeholder='Enter Treatment Goals Here...' {...register("prescription_goals")} />
                 </IonItem>
                 <h6 style={{
                   "textAlign": "left",
@@ -1004,7 +1089,7 @@ export default function Prescription(props) {
                   <IonGrid>
                     <IonRow>
                       <IonCol size='6'><IonLabel className="prescription_label" position="stacked" style={{ "float": "left" }}>Exercise </IonLabel></IonCol>
-                      <IonCol size='6'><IonLabel className='prescription_label' position="stacked" onClick={() => doMediaCapture()}  style={{ "float": "right" }}>Add Video</IonLabel></IonCol>
+                      <IonCol size='6'><IonLabel className='prescription_label' position="stacked" onClick={() => setisVideoModalOpen(true)}  style={{ "float": "right" }}>Add Video</IonLabel></IonCol>
                     </IonRow>
                   </IonGrid>
                 <IonItemGroup className='prescription_section'>
@@ -1012,119 +1097,6 @@ export default function Prescription(props) {
                     <IonInput value={exerciseInputVal.join(", ")} placeholder='Please Select Exercise' readonly className="prescription_input exe_dd_input" onClick={() => { setisModalOpen(true) }} >
                       <IonIcon className="exe_dd_icon" icon={caretDownOutline} slot="end" /></IonInput>
                   </IonItem>
-
-                  {/* { displayAddExercise ? 
-                    return (
-                      <div className="exercise">
-                        <IonText>
-                          <b className="exerciseName">excersice name</b>
-                        </IonText>
-                        {<div className="removeExercise" onClick={() => removeExercise(exercise)}>X</div> }
-                        <div className="exercise_desc">
-                          <div className="flexRow">
-                            <div className="flexItem">
-                              <IonLabel className='prescription_label' position="stacked" >Reps</IonLabel>
-                              <IonInput
-                                className='exercise_input_2'
-                                type="number" />
-                            </div>
-
-                            {!exercise.isTimeControlled ?
-                              <>
-                                <div className="flexItem">
-                                  <IonLabel className='prescription_label' position="stacked" >Sets</IonLabel>
-                                  <IonInput className='exercise_input_2' type="number" value={exercise.exercise_sets}
-                                    onIonChange={(e) => {
-                                      dispatch({
-                                        type: EXERCISE_ACTION.CHANGE_SETS,
-                                        payload: {
-                                          value: e.detail.value,
-                                          exercise_name: exercise.exercise_name,
-                                        }
-                                      })
-                                    }} />
-                                </div>
-
-                                <div className="flexItem">
-                                  <IonLabel className='prescription_label' position="stacked" >Holds</IonLabel>
-                                  <IonInput className='exercise_input_2' type="number" value={exercise.exercise_holds}
-                                    onIonChange={(e) => {
-                                      dispatch({
-                                        type: EXERCISE_ACTION.CHANGE_HOLDS,
-                                        payload: {
-                                          value: e.detail.value,
-                                          exercise_name: exercise.exercise_name,
-                                        }
-                                      })
-                                    }}
-                                  />
-                                </div>
-                              </> :
-                              <div className="flexItem">
-                                <IonLabel className='prescription_label' position="stacked" >Time</IonLabel>
-                                <IonInput className='exercise_input_2' type="number" value={exercise.exercise_time}
-                                  onIonChange={(e) => {
-                                    dispatch({
-                                      type: EXERCISE_ACTION.CHANGE_TIME,
-                                      payload: {
-                                        value: e.detail.value,
-                                        exercise_name: exercise.exercise_name,
-                                      }
-                                    })
-                                  }} />
-                              </div>
-                            }
-
-                            <div className="flexItem">
-                              <IonLabel className='prescription_label' position="stacked" >Rest</IonLabel>
-                              <IonInput className='exercise_input_2' type="number" value={exercise.exercise_rests}
-                                onIonChange={(e) => {
-                                  dispatch({
-                                    type: EXERCISE_ACTION.CHANGE_RESTS,
-                                    payload: {
-                                      value: e.detail.value,
-                                      exercise_name: exercise.exercise_name,
-                                    }
-                                  })
-                                }} />
-                            </div>
-
-                            <div className="flexItem">
-                              <IonLabel className='prescription_label' position="stacked" >Days</IonLabel>
-                              <IonInput className='exercise_input_2' type="number" value={exercise.exercise_days}
-                                onIonChange={(e) => {
-                                  dispatch({
-                                    type: EXERCISE_ACTION.CHANGE_DAYS,
-                                    payload: {
-                                      value: e.detail.value,
-                                      exercise_name: exercise.exercise_name,
-                                    }
-                                  })
-                                }} />
-                            </div>
-
-                          </div>
-                          <div >
-                            <IonLabel className='prescription_label' style={{ "float": "left" }} position="stacked" >Special Note</IonLabel>
-                            <IonInput placeholder="Enter Special Note Here..." className='exercise_input_2' style={{ "textAlign": "left" }} type="text" value={exercise.exercise_note}
-                              onIonChange={(e) => {
-                                dispatch({
-                                  type: EXERCISE_ACTION.CHANGE_NOTE,
-                                  payload: {
-                                    value: e.detail.value,
-                                    exercise_name: exercise.exercise_name,
-                                  }
-                                })
-                              }} />
-                          </div>
-
-                          {exercise.isMultiDirectional ? <IonText color='danger'>*This Exercise is Multi-Directional Please Enter Reps Accordingly</IonText> : null}
-                        </div>
-                      </div>
-                    )
-                    :null
-                  } */}
-
                   {selectedExerciseArr.length ?
                     selectedExerciseArr.map((exercise, key) => {
                       // console.log("exercise", exercise);

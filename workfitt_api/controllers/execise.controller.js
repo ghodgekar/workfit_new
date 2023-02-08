@@ -86,6 +86,28 @@ module.exports.addExerciseForDr = async (req) => {
     // }
 }
 
+module.exports.customExerciseSave = async (req) => {
+    let queryBodyPartId = `SELECT body_part_id FROM mst_body_part where body_part_name = ${req.body_part_name}  limit 1`;
+    let resultBodyPartId = await db.executequery(queryBodyPartId);
+    let query = "INSERT INTO mst_exercises"
+        + "(exercise_name, exercise_reps, exercise_holds, exercise_sets, exercise_rests, exercise_body_part_id, exercise_video_id, exercise_instruction_id,exercise_time,isMultidirectional,"
+        + "isTimeControlled, isActive)"
+        + " VALUES "
+        + "(?,?,?,?,?,?,?,?,?,?,"
+        + "?,?)"//12
+    let values = [
+        req.exercise_name, req.exercise_reps, req.exercise_holds, req.exercise_sets, req.exercise_rests, resultBodyPartId, req.exercise_video_id, req.exercise_instruction_id, req.exercise_time, req.isMultidirectional,
+        req.isTimeControlled, 1
+    ];
+    let result = await db.executevaluesquery(query, values);
+    console.log("result", result);
+    if (result.insertId) {
+        return { status: true, msg: "Data inserted successfully" }
+    } else {
+        return { status: false, msg: "Oop's Database Issue Occured" }
+    }
+}
+
 exports.exerciseList = async (req, res) => {
     try {
         let limit = req.query.limit ? 'LIMIT ' + req.query.limit : '';
