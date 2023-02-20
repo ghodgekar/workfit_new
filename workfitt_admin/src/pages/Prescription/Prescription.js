@@ -291,7 +291,7 @@ export default function Prescription() {
             const speak = (textToSpeak) => {
             const msg = new SpeechSynthesisUtterance();
             const voices = window.speechSynthesis.getVoices();
-            msg.voice = voices[0];
+            msg.voice = voices[1];
             msg.volume = 1; // 0 to 1
             msg.rate = 1; // 0.1 to 10
             msg.pitch = .1; // 0 to 2
@@ -318,10 +318,10 @@ export default function Prescription() {
             if(tr == 'pause'){
                 speechSynthesis.pause();
             }
-            if(tr == 'play'){
+            else if(tr == 'play'){
                 speechSynthesis.play();
             }
-            if(tr == 'cancel'){
+            else{
                 speechSynthesis.cancel();
             }
 
@@ -511,7 +511,7 @@ export default function Prescription() {
                                                         </h5>
                                                     </div>
                                                     <div className="instContainer">
-                                                        <span className="instructionSpace" onClick={() => { toggleVideoDemo(exercise, key) }}>[Demo Movement]</span> {" "}
+                                                        <span className="instructionSpace" onClick={() => { toggleVideoDemo(exercise, key) }}>[Demo Video]</span> {" "}
                                                         <span className="instructionSpace" onClick={() => { viewDescriptionModal(exercise.instructionObj.instruction_description_english, "English") }}>[Instruction English]</span> {" "}
                                                         <span className="instructionSpace" onClick={() => { viewDescriptionModal(exercise.instructionObj.instruction_description_hindi, "Hindi") }}>[निर्देश हिंदी में]</span>
                                                     </div>
@@ -520,10 +520,10 @@ export default function Prescription() {
                                                         <source src={audioPath} type="audio/mp3" />
                                                     </audio> */}
                                                     {/* <br></br> */}
-                                                    <button className="button-7" onClick={() => {speakMessage(exercise,700, 'play', key)}}>Play</button>
+                                                    <button className="button-7" onClick={() => {speakMessage(exercise,700, 'play', key)}}>Start Exercise</button>
                                                     {/* <button className="vasScaleUpdate" onClick={() => { updateVasScale(vas_scale) }}>Save</button> */}
 
-                                                    <button type="button" className="button-7"  onClick={() => {speakMessage(exercise,700, 'pause', key)}}>Pause</button>
+                                                    <button type="button" className="button-7"  onClick={() => {speakMessage(exercise,700, 'pause', key)}}>Pause Exercise</button>
                                                     {/* <button type="button"  onClick={() => {speakMessage(exercise,700,'cancel')}}>cancel</button> */}
                                                     <br></br>
                                                     {exercise.exercise_note ?
