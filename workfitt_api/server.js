@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const config=require("./config/config.json")
+const config=require("./config/config_prod.json")
 const routes = require('./routes/routes');
 const port =config.port
 app.use(express.static('public'))
