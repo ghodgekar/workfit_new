@@ -43,7 +43,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import { App as Back } from '@capacitor/app';
 import { isAfter } from 'date-fns';
 import MyProfile from './pages/MyProfile';
-import { AdMob, BannerAdOptions, BannerAdSize, BannerAdPosition, BannerAdPluginEvents, AdMobBannerSize } from '@capacitor-community/admob';
+// import { AdMob, BannerAdOptions, BannerAdSize, BannerAdPosition, BannerAdPluginEvents, AdMobBannerSize } from '@capacitor-community/admob';
 import config from "./config/config.json"
 import Logout from './pages/Logout';
 
@@ -91,7 +91,7 @@ const App: React.FC = () => {
       });
       // AdMob.initialize();
 
-      await initialize()
+      // await initialize()
 
 
 
@@ -110,51 +110,51 @@ const App: React.FC = () => {
   }, [])
 
 
-  async function initialize(): Promise<void> {
-    const { status } = await AdMob.trackingAuthorizationStatus();
+  // async function initialize(): Promise<void> {
+  //   const { status } = await AdMob.trackingAuthorizationStatus();
 
-    if (status === 'notDetermined') {
-      /**
-       * If you want to explain TrackingAuthorization before showing the iOS dialog,
-       * you can show the modal here.
-       * ex)
-       * const modal = await this.modalCtrl.create({
-       *   component: RequestTrackingPage,
-       * });
-       * await modal.present();
-       * await modal.onDidDismiss();  // Wait for close modal
-       **/
-    }
+  //   if (status === 'notDetermined') {
+  //     /**
+  //      * If you want to explain TrackingAuthorization before showing the iOS dialog,
+  //      * you can show the modal here.
+  //      * ex)
+  //      * const modal = await this.modalCtrl.create({
+  //      *   component: RequestTrackingPage,
+  //      * });
+  //      * await modal.present();
+  //      * await modal.onDidDismiss();  // Wait for close modal
+  //      **/
+  //   }
 
-    await AdMob.initialize({
-      requestTrackingAuthorization: true,
-      // initializeForTesting: true,
-    });
-    await showAdBanner()
-  }
+  //   await AdMob.initialize({
+  //     requestTrackingAuthorization: true,
+  //     // initializeForTesting: true,
+  //   });
+  //   await showAdBanner()
+  // }
 
-  async function showAdBanner(): Promise<void> {
-    AdMob.addListener(BannerAdPluginEvents.Loaded, () => {
-    });
+  // async function showAdBanner(): Promise<void> {
+  //   AdMob.addListener(BannerAdPluginEvents.Loaded, () => {
+  //   });
 
-    AdMob.addListener(BannerAdPluginEvents.SizeChanged, (size: AdMobBannerSize) => {
-      let appMargin =size.height;
-      if (appMargin > 0) {
-        const app: HTMLElement = document.querySelector('ion-tab-bar');
-        app.style.marginBottom = appMargin + 'px';
-      }
-    });
+  //   AdMob.addListener(BannerAdPluginEvents.SizeChanged, (size: AdMobBannerSize) => {
+  //     let appMargin =size.height;
+  //     if (appMargin > 0) {
+  //       const app: HTMLElement = document.querySelector('ion-tab-bar');
+  //       app.style.marginBottom = appMargin + 'px';
+  //     }
+  //   });
 
-    const options: BannerAdOptions = {
-      adId: config.google_ad_id,
-      adSize: BannerAdSize.ADAPTIVE_BANNER,
-      position: BannerAdPosition.BOTTOM_CENTER,
-      margin: 0,
-      // isTesting: true
-      // npa: true
-    };
-    AdMob.showBanner(options);
-  }
+  //   const options: BannerAdOptions = {
+  //     adId: config.google_ad_id,
+  //     adSize: BannerAdSize.ADAPTIVE_BANNER,
+  //     position: BannerAdPosition.BOTTOM_CENTER,
+  //     margin: 0,
+  //     // isTesting: true
+  //     // npa: true
+  //   };
+  //   AdMob.showBanner(options);
+  // }
 
   async function openWebview(fullUrl: string) {
     await Browser.open({ url: fullUrl, windowName: '_self' });

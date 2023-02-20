@@ -30,6 +30,8 @@ import {
   VideoCapturePlusOptions,
   VideoCapturePlus,
 } from "@ionic-native/video-capture-plus";
+import { File, DirectoryEntry } from "@ionic-native/file";
+import { Capacitor } from '@capacitor/core';
 
 let CTScanObject = { advice_name: "CT SCAN" }
 let MRIObject = { advice_name: "MRI" }
@@ -241,6 +243,9 @@ export default function Prescription(props) {
 
   const [displayAddExercise, setDisplayAddExercise] = useState(false)
 
+  
+  const [videoUrl, setVideoUrl] = useState("")
+
   function dismiss() {
     setisModalOpen(false)
     setisVideoModalOpen(false)
@@ -320,7 +325,7 @@ export default function Prescription(props) {
         "exercise_sets" : data.exercise_sets,
         "exercise_rests" : data.exercise_rests,
         "body_part_name": bodyPart[bodyPart.length - 1],
-        "exercise_video" : "402",
+        "exercise_video" : videoUrl,
         "exercise_time" : data.exercise_time,
         "doctor_id": doctorData.doctor_Id
       }
@@ -687,10 +692,33 @@ export default function Prescription(props) {
   }, [errors])
 
   const doMediaCapture = async () => {
-    setDisplayAddExercise(true);
-    let options: VideoCapturePlusOptions = { limit: 1, duration: 30 };
-    let capture:any = await VideoCapturePlus.captureVideo(options);
-    console.log((capture[0] as MediaFile).fullPath)
+    // let options: VideoCapturePlusOptions = { limit: 1, duration: 30 };
+    // let capture:any = await VideoCapturePlus.captureVideo(options);
+    // let URL:any = (capture[0] as MediaFile).fullPath;
+
+    let options: VideoCapturePlusOptions = { limit: 1, highquality: true, duration: 30 };
+    let capture: any = await VideoCapturePlus.captureVideo(options);
+    let media = capture[0] as MediaFile;
+
+    // works on android....
+    let resolvedPath: DirectoryEntry;
+    let path = media.fullPath.substring(0, media.fullPath.lastIndexOf("/"));
+    if (Capacitor.getPlatform() === "android") {
+      resolvedPath = await File.resolveDirectoryUrl("file://" + path);
+    } else {
+      resolvedPath = await File.resolveDirectoryUrl(path);
+    }
+
+    File.readAsArrayBuffer(resolvedPath.nativeURL, media.name).then(
+      (buffer: any) => {
+        // get the buffer and make a blob to be saved
+        let imgBlob:any = new Blob([buffer], {
+          type: media.type,
+        });
+        setVideoUrl(imgBlob);
+      },
+      (error: any) => console.log(error)
+    );
   };
 
   return (
@@ -743,7 +771,7 @@ export default function Prescription(props) {
         
         <IonModal id="example-modal" isOpen={isVideoModalOpen}>
           <IonHeader>
-            <IonToolbar>
+            <IonToolbar style={{"padding-left": "10px"}}>
               Add New Exercise Video
               <IonButtons slot="end">
                 <IonButton onClick={() => dismiss()}>
